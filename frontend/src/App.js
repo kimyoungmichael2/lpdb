@@ -10,6 +10,8 @@ import Visits from './views/Visits'
 import Footer from './components/Footer'
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Message} from 'semantic-ui-react';
 
 import { io } from "socket.io-client";
 
@@ -31,12 +33,20 @@ socket.on("disconnect", () => {
   console.log("Disconnected!");
 })
 
+
 function App() {
+  const [visible, setVisible] = useState(true);
+
+  const handleDismiss = () => {
+    setVisible(false);
+  }
+
   return (
     <div className="mainDiv">
       <Router>
         <Title />      
         <Nav />
+        <LiveDemoMessage visible={visible} handleDismiss={handleDismiss}/>
           <Switch>
             <Route path="/" exact component={RecentScans} />
             <Route path="/Dashboard" exact component={Dashboard} /> 
@@ -44,10 +54,25 @@ function App() {
             <Route path="/page3" component={Page3} /> 
             <Route path="/visits" component={Visits} /> 
           </Switch>
-        {/* <Footer /> */}
       </Router>
+      
     </div>
   );
+}
+
+function LiveDemoMessage(props) {
+  if (props.visible) {
+    return (
+      <Message
+      onDismiss={props.handleDismiss}
+      header='Thank you for visiting the License Plate Database demo site!'
+      content='This live demo version of LPDB project is deployed purely for demonstrative purposes. This product only accepts new data through Ultimate ALPR instance&apos;s license plate recognition, which isn&apos;t available currently for this demo site. Therefore new data cannot be inserted. However, currently existing data can be edited and deleted. Future updates may include a way to insert video files with license plates to allow end-to-end testing.'
+    />
+    )
+  }
+  if (!props.visible) {
+    return([]);
+  };
 }
 
 export default App;

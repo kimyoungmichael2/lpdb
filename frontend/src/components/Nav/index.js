@@ -23,11 +23,12 @@ export default class Nav extends Component {
             Recent Scans
           </Menu.Item>
         </Link>
-        <Link to= '/dashboard'>
+        {/* <Link to= '/dashboard'> */}
+        <Link to= '/'>
           <Menu.Item
             name='dashboard'
-            active={activeItem === 'dashboard'}
-            onClick={this.handleItemClick}
+            // active={activeItem === 'dashboard'}
+            // onClick={this.handleItemClick}
           >
             <Icon name='dashboard' />
             Dashboard
@@ -53,11 +54,12 @@ export default class Nav extends Component {
             Input
           </Menu.Item>
         </Link> */}
-        <Link to= '/visits'>
+        {/* <Link to= '/visits'> */}
+        <Link to= '/'>
           <Menu.Item
             name='visits'
-            active={activeItem === 'visits'}
-            onClick={this.handleItemClick}
+            // active={activeItem === 'visits'}
+            // onClick={this.handleItemClick}
           >
             <Icon name='car' />
             Visits
