@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="mainDiv">
-      <Router>
+      <Router basename="/lpdb">
         <Title />      
         <Nav />
         <LiveDemoMessage visible={visible} handleDismiss={handleDismiss}/>
