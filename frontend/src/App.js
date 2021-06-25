@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Title from './components/Title'
 import Nav from './components/Nav'
@@ -7,7 +6,6 @@ import Dashboard from './views/Dashboard'
 import Page2 from './views/Page2'
 import Page3 from './views/Page3'
 import Visits from './views/Visits'
-import Footer from './components/Footer'
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {useState, useEffect} from 'react';
