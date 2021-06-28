@@ -12,3 +12,9 @@
 #git fetch upstream
 #git pull upstream develop (or whatever branch you want to pull)
 #merge changes as needed. 
+
+cp -r ./frontend/build/. /var/www/michaelyoung.kim/lpdb/
+echo files copied!
+
+systemctl reload nginx
+echo nginx reloaded!
