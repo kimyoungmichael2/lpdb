@@ -12,7 +12,7 @@ function RecentScans() {
 
     useEffect(async () => {
         const res = await axios(
-            'http://localhost:9000/api/visits/page/' + currentPage
+            'https://michaelyoung.kim/lpdb/api/api/visits/page/' + currentPage
         );
         if (res.data.length === 0) return;
         setCurrentPagesVisits(res.data);
@@ -20,7 +20,7 @@ function RecentScans() {
         setFocus(initialFocus);
 
         const res2 = await axios(
-            'http://localhost:9000/api/visits/pagecount/total'
+            'https://michaelyoung.kim/lpdb/api/api/visits/pagecount/total'
         )
         setTotalPages(res2.data)
     },[]);
@@ -31,7 +31,7 @@ function RecentScans() {
 
     useEffect(async () => {
         const res = await axios(
-            'http://localhost:9000/api/visits/page/' + currentPage
+            'https://michaelyoung.kim/lpdb/api/api/visits/page/' + currentPage
         )
         setCurrentPagesVisits(res.data);
 
@@ -50,7 +50,7 @@ function RecentScans() {
 
     const handleFocusEdit = async () => {
         const res = await axios(
-            'http://localhost:9000/api/visits/' + focus.visit_id
+            'https://michaelyoung.kim/lpdb/api/api/visits/' + focus.visit_id
         );
         console.log(res.data[0]);
         setFocus(res.data[0]);
@@ -58,7 +58,7 @@ function RecentScans() {
 
     const handleVisitDelete = async () => {
         const res = await axios(
-            'http://localhost:9000/api/visits/page/' + currentPage
+            'https://michaelyoung.kim/lpdb/api/api/visits/page/' + currentPage
         );
         if (res.data.length === 0) return;
         setCurrentPagesVisits(res.data);
