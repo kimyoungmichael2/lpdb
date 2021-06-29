@@ -13,9 +13,9 @@ services:
       - "./backend/src:/app/src"
       - "./backend/db:/app/db"
 
-  # frontend:
-  #   build: ./frontend
-  #   ports: 
-  #     - 3000:3000
-  #   volumes:
-  #     - "./frontend/src:/app/src"
+#  frontend:
+#    build: ./frontend
+#    ports: 
+#      - 3000:3000
+#    volumes:
+#      - "./frontend/src:/app/src"
