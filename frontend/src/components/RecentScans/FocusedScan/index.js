@@ -12,18 +12,18 @@ function FocusedScan(props) {
 
     useEffect(async() => {
         const res = await axios(
-            'http://localhost:9000/api/visits/' + props.focus.visit_id
+            'https://michaelyoung.kim/lpdb/api/api/visits/' + props.focus.visit_id
         )
         setFocus(res.data)
     },[])
 
     useEffect(async () => {
         const res = await axios(
-            'http://localhost:9000/api/visits/' + props.focus.visit_id
+            'https://michaelyoung.kim/lpdb/api/api/visits/' + props.focus.visit_id
         )
         setFocus(res.data)
         const res2 = await axios(
-            'http://localhost:9000/api/visits/countvisits/' + props.focus.plate_id
+            'https://michaelyoung.kim/lpdb/api/api/visits/countvisits/' + props.focus.plate_id
         )
         setTotalVisit(res2.data); 
     },[props.focus]);
@@ -65,17 +65,17 @@ function FocusedScan(props) {
 
 
     const updateReq = async () => {
-        await axios.put('http://localhost:9000/api/visits/' + focus[0]['visit_id'], {plate_number: editData})
+        await axios.put('https://michaelyoung.kim/lpdb/api/api/visits/' + focus[0]['visit_id'], {plate_number: editData})
         setEditMode(false);
         props.handleFocusEdit();
         const res = await axios(
-            'http://localhost:9000/api/visits/countvisits/' + props.focus.plate_id
+            'https://michaelyoung.kim/lpdb/api/api/visits/countvisits/' + props.focus.plate_id
         )
         setTotalVisit(res.data); 
     }
 
     const deleteVisit = async () => {
-        await axios.delete('http://localhost:9000/api/visits/' + focus[0]['visit_id'])
+        await axios.delete('https://michaelyoung.kim/lpdb/api/api/visits/' + focus[0]['visit_id'])
         setOpen(false);
         props.handleVisitDelete();
     }

@@ -13,25 +13,25 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {Message} from 'semantic-ui-react';
 
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
-const socket = io("http://localhost:9000", {
-  transports: ['websocket'],
-  upgrade: false,
-});
+// const socket = io("https://michaelyoung.kim/lpdb/api/", {
+//   transports: ['websocket'],
+//   upgrade: false,
+// });
 
-socket.on("connect", () => {
-  console.log("Connected!");
-  socket.emit("hello", "world");
-});
+// socket.on("connect", () => {
+//   console.log("Connected!");
+//   socket.emit("hello", "world");
+// });
 
-socket.on("hello", msg => {
-  console.log(msg);
-})
+// socket.on("hello", msg => {
+//   console.log(msg);
+// })
 
-socket.on("disconnect", () => {
-  console.log("Disconnected!");
-})
+// socket.on("disconnect", () => {
+//   console.log("Disconnected!");
+// })
 
 
 function App() {
@@ -43,10 +43,10 @@ function App() {
 
   return (
     <div className="mainDiv">
+
       <Router>
         <Title />      
         <Nav />
-        <LiveDemoMessage visible={visible} handleDismiss={handleDismiss}/>
           <Switch>
             <Route path="/" exact component={RecentScans} />
             <Route path="/Dashboard" exact component={Dashboard} /> 
@@ -55,7 +55,7 @@ function App() {
             <Route path="/visits" component={Visits} /> 
           </Switch>
       </Router>
-      
+      {/* <LiveDemoMessage visible={visible} handleDismiss={handleDismiss}/> */}
     </div>
   );
 }
